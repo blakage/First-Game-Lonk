@@ -5,7 +5,7 @@ using UnityEngine;
 public class creature : MonoBehaviour
 {
     [Header("Config")]
-    public int healthPoints = 10;
+    public int healthPoints = 11;
     public float speed = 6.0f;
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
