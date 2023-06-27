@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (creature != null)
         {
-            Vector3 targetPosition = new Vector3(creature.position.x, creature.position.y, transform.position.z);
+            Vector3 targetPosition = new Vector3(creature.position.x, creature.position.y+2, transform.position.z);
 
             // Smoothly move the camera towards the target position
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
