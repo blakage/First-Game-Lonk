@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class PlayerInputController : MonoBehaviour
 {
 
     creature creature;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,4 +50,5 @@ public class PlayerInputController : MonoBehaviour
             //creature.Jump();
         //}
     }
+
 }

@@ -17,6 +17,8 @@ public class creature : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D rb;
 
+    bool isJumping;
+
     void Awake()
     {
         Debug.Log("awake called");
@@ -33,7 +35,7 @@ public class creature : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("update called");
+        
         //myTransform.position += new Vector3(1f,0f,0f) * Time.deltaTime;
         
     }
@@ -41,13 +43,13 @@ public class creature : MonoBehaviour
     public void Move(Vector3 direction)
     {
         //transform.position += direction * speed * Time.deltaTime;
-        //rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
-        rb.velocity = direction * speed; //if u want to push 
+        rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
+        //rb.velocity = direction * speed; //if u want to push 
     }
 
     public void RandomizeColor()
     {
-        sr.color = new Color(Random.Range(0f,1f),Random.Range(0f,1f),Random.Range(0f,1f));
+        sr.color = new Color(Random.Range(0f,1f), Random.Range(0f,1f), Random.Range(0f,1f));
     }
 
     public void LaunchProjectile()
@@ -58,9 +60,22 @@ public class creature : MonoBehaviour
 
     public void Jump()
     {
+        if(!isJumping)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            isJumping = true;
+        }
         // Add an upward force to the Rigidbody component
-        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        //rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }   
     
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.otherCollider.GetType()==typeof(EdgeCollider2D)){
+            Debug.Log("Collision!");
+            isJumping = false;
+        }
+
+    }
     
 }
