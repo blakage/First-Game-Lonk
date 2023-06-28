@@ -17,6 +17,8 @@ public class creature : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D rb;
 
+    public SpriteRenderer spriteRenderer;
+
     bool isJumping;
 
     void Awake()
@@ -24,6 +26,7 @@ public class creature : MonoBehaviour
         Debug.Log("awake called");
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -45,6 +48,10 @@ public class creature : MonoBehaviour
         //transform.position += direction * speed * Time.deltaTime;
         rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
         //rb.velocity = direction * speed; //if u want to push 
+        if (direction.x > 0)
+            spriteRenderer.flipX = false;
+        else if (direction.x < 0)
+            spriteRenderer.flipX = true;
     }
 
     public void RandomizeColor()
