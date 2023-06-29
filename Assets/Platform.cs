@@ -25,24 +25,28 @@ public class Platform : MonoBehaviour
         
         StartCoroutine(backAndFourthRoutine());
         IEnumerator backAndFourthRoutine(){
-            float t = 0;
+            while(true){
+                float t = 0;
+                yield return new WaitForSeconds(1);
 
-            while(t<moveTime){
+                while(t<moveTime){
+                    yield return null;
+                    t+=Time.deltaTime;
+                    transform.position = Vector3.Lerp(left.transform.position,right.transform.position,t/moveTime);
+                }
+
+                yield return new WaitForSeconds(1);
+                t = 0;
+
+                while(t<moveTime){
+                    yield return null;
+                    t+=Time.deltaTime;
+                    transform.position = Vector3.Lerp(right.transform.position,left.transform.position,t/moveTime);
+                }
+
                 yield return null;
-                t+=Time.deltaTime;
-                transform.position = Vector3.Lerp(left.transform.position,right.transform.position,t/moveTime);
-            }
-
-            yield return new WaitForSeconds(1);
-            t = 0;
-
-            while(t<moveTime){
-                yield return null;
-                t+=Time.deltaTime;
-                transform.position = Vector3.Lerp(right.transform.position,left.transform.position,t/moveTime);
-            }
-
-            yield return null;
+                }
+            
         }
     }
 }

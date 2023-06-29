@@ -38,6 +38,7 @@ public class PlayerInputController : MonoBehaviour
     /// // Update is called once per frame
     void FixedUpdate()
     {
+        
         if(Input.GetKey(KeyCode.D))
         {
             creature.Move(new Vector3(1,0,0));
@@ -49,6 +50,9 @@ public class PlayerInputController : MonoBehaviour
         //{
             //creature.Jump();
         //}
+        
+        
     }
+
 
 }

@@ -46,8 +46,10 @@ public class creature : MonoBehaviour
     public void Move(Vector3 direction)
     {
         //transform.position += direction * speed * Time.deltaTime;
-        rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
-        //rb.velocity = direction * speed; //if u want to push 
+        direction *= speed;
+        direction.y+=rb.velocity.y;
+        //rb.MovePosition(transform.position+(direction * Time.fixedDeltaTime));
+        rb.velocity = direction; //if u want to push 
         if (direction.x > 0)
             spriteRenderer.flipX = false;
         else if (direction.x < 0)
