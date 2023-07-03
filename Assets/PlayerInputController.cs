@@ -31,6 +31,10 @@ public class PlayerInputController : MonoBehaviour
             creature.Jump();
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            OptionsMenu.Open();
+        }
+
     }
 
     
