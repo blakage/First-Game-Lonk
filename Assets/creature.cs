@@ -16,6 +16,7 @@ public class creature : MonoBehaviour
     [Header("refrences")]
     SpriteRenderer sr;
     Rigidbody2D rb;
+    AnimationStateChanger animationStateChanger;
 
     public SpriteRenderer spriteRenderer;
 
@@ -26,6 +27,7 @@ public class creature : MonoBehaviour
         Debug.Log("awake called");
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        animationStateChanger = GetComponent<AnimationStateChanger>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -50,6 +52,14 @@ public class creature : MonoBehaviour
         direction.y+=rb.velocity.y;
         //rb.MovePosition(transform.position+(direction * Time.fixedDeltaTime));
         rb.velocity = direction; //if u want to push 
+        
+
+        if(direction == Vector3.zero && rb.velocity == Vector2.zero){
+            animationStateChanger.ChangeAnimationState("idle");
+        }else{
+            animationStateChanger.ChangeAnimationState("Walking",1);
+        }
+
         if (direction.x > 0)
             spriteRenderer.flipX = false;
         else if (direction.x < 0)

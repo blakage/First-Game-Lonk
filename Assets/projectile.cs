@@ -9,6 +9,7 @@ public class projectile : MonoBehaviour
     public GameObject target;
 
     Rigidbody2D rb;
+
     // Start is called before the first frame update
 
     void Awake() 
@@ -34,4 +35,6 @@ public class projectile : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(transform.forward, position - transform.position);
         rb.velocity = transform.up * speed;
     }
+
+    
 }
