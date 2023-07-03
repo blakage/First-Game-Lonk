@@ -53,8 +53,9 @@ public class creature : MonoBehaviour
         //rb.MovePosition(transform.position+(direction * Time.fixedDeltaTime));
         rb.velocity = direction; //if u want to push 
         
-
-        if(direction == Vector3.zero && rb.velocity == Vector2.zero){
+        Debug.Log(direction);
+        if(direction == Vector3.zero){
+            Debug.Log("idle");
             animationStateChanger.ChangeAnimationState("idle");
         }else{
             animationStateChanger.ChangeAnimationState("Walking",1);

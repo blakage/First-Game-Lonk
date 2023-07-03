@@ -45,7 +45,9 @@ public class PlayerInputController : MonoBehaviour
         } else if(Input.GetKey(KeyCode.A))
         {
             creature.Move(new Vector3(-1,0,0));
-        } 
+        } else {
+            creature.Move(Vector3.zero);
+        }
         //if(Input.GetKey(KeyCode.Space))
         //{
             //creature.Jump();
