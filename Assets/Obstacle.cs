@@ -35,6 +35,7 @@ public class Obstacle : MonoBehaviour
             }
             PlaySoundEffect();
             ShowGameOver();
+            Coin.score = 0;
             ChangeScene("MainMenu");
         }
 
