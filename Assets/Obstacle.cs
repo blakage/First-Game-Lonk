@@ -10,9 +10,15 @@ public class Obstacle : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     // Start is called before the first frame update
     bool changingScenes = false;
+    private AudioSource soundEffect;
 
     void Start()
     {
+        GameObject coinAudioObj = GameObject.Find("DeathSound");
+        if (coinAudioObj != null)
+        {
+            soundEffect = coinAudioObj.GetComponent<AudioSource>();
+        }
         // Hide the gameOverText object at the start
         gameOverText.gameObject.SetActive(false);
     }
@@ -22,6 +28,12 @@ public class Obstacle : MonoBehaviour
         Debug.Log("Collision!");
         if(other.GetComponent<creature>() != null)
         {
+            AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource audioSource in audioSources)
+            {
+                audioSource.Stop();
+            }
+            PlaySoundEffect();
             ShowGameOver();
             ChangeScene("MainMenu");
         }
@@ -46,6 +58,10 @@ public class Obstacle : MonoBehaviour
             yield return null;
         }
         
+    }
+    void PlaySoundEffect()
+    {
+        soundEffect.Play(); // Play the sound effect
     }
     // Update is called once per frame
     

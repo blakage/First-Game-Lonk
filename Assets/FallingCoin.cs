@@ -23,7 +23,7 @@ public class FallingCoin : MonoBehaviour
         }
         
         // Find the game object with the name "CoinAudio"
-        GameObject coinAudioObj = GameObject.Find("CoinAudio");
+        GameObject coinAudioObj = GameObject.Find("CoinSound");
         if (coinAudioObj != null)
         {
             soundEffect = coinAudioObj.GetComponent<AudioSource>();

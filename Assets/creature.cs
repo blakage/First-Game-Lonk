@@ -53,7 +53,6 @@ public class creature : MonoBehaviour
         //rb.MovePosition(transform.position+(direction * Time.fixedDeltaTime));
         rb.velocity = direction; //if u want to push 
         
-        Debug.Log(direction);
         if(direction == Vector3.zero){
             Debug.Log("idle");
             animationStateChanger.ChangeAnimationState("idle");
