@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
     private Text scoreText; // Reference to the text component in the canvas
 
     private AudioSource soundEffect;
+    
 
     
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class Coin : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Coin Collision!");
@@ -38,7 +40,7 @@ public class Coin : MonoBehaviour
             Destroy(this.gameObject);
             IncrementScore();
             PlaySoundEffect();
-            
+
         }
 
     }
@@ -46,10 +48,13 @@ public class Coin : MonoBehaviour
     {
         score++; // Increment the score value by 1
         scoreText.text = score.ToString(); // Update the text component with the new score value
+        CoinScoreIcon.UpdateCoinVisibility(); // Update the coin visibility
     }
 
     void PlaySoundEffect()
     {
         soundEffect.Play(); // Play the sound effect
     }
+
+    
 }

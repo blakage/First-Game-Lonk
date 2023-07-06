@@ -54,7 +54,6 @@ public class creature : MonoBehaviour
         rb.velocity = direction; //if u want to push 
         
         if(direction == Vector3.zero){
-            Debug.Log("idle");
             animationStateChanger.ChangeAnimationState("idle");
         }else{
             animationStateChanger.ChangeAnimationState("Walking",1);
@@ -73,6 +72,7 @@ public class creature : MonoBehaviour
 
     public void LaunchProjectile()
     {
+        animationStateChanger.ChangeAnimationState("Sword",1);
         GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
