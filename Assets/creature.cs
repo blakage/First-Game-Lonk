@@ -73,7 +73,8 @@ public class creature : MonoBehaviour
     public void LaunchProjectile()
     {
         animationStateChanger.ChangeAnimationState("Sword",1);
-        GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        Vector3 spawnPosition = transform.position + new Vector3(0f, 1.25f, 0f); // Adjust the y value as needed
+        GameObject newProjectile = Instantiate(projectile, spawnPosition, Quaternion.identity);
         newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
