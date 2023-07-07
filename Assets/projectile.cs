@@ -36,5 +36,17 @@ public class projectile : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            // Destroy the block
+            Destroy(collision.gameObject);
+
+            // Destroy the projectile
+            Destroy(gameObject);
+        }
+    }
+
     
 }

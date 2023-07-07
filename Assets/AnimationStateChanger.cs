@@ -6,7 +6,7 @@ public class AnimationStateChanger : MonoBehaviour
 {
     Animator animator;
 
-    string currentState = "idle";
+    public string currentState = "idle";
     // Start is called before the first frame update
     void Awake()
     {

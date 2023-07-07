@@ -21,6 +21,7 @@ public class creature : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     bool isJumping;
+    bool isAttacking = false;
 
     void Awake()
     {
@@ -53,16 +54,22 @@ public class creature : MonoBehaviour
         //rb.MovePosition(transform.position+(direction * Time.fixedDeltaTime));
         rb.velocity = direction; //if u want to push 
         
-        if(direction == Vector3.zero){
-            animationStateChanger.ChangeAnimationState("idle");
-        }else{
-            animationStateChanger.ChangeAnimationState("Walking",1);
-        }
 
         if (direction.x > 0)
             spriteRenderer.flipX = false;
         else if (direction.x < 0)
             spriteRenderer.flipX = true;
+
+        if(isAttacking){
+            return;
+        }
+        
+        if(direction == Vector3.zero){
+            animationStateChanger.ChangeAnimationState("idle");
+        }else{
+            animationStateChanger.ChangeAnimationState("Walking",1);
+        }
+        
     }
 
     public void RandomizeColor()
@@ -72,10 +79,21 @@ public class creature : MonoBehaviour
 
     public void LaunchProjectile()
     {
-        animationStateChanger.ChangeAnimationState("Sword",1);
+        if(isAttacking){
+            return;
+        }
+        isAttacking = true;
+        animationStateChanger.ChangeAnimationState("Sword",5);
         Vector3 spawnPosition = transform.position + new Vector3(0f, 1.25f, 0f); // Adjust the y value as needed
         GameObject newProjectile = Instantiate(projectile, spawnPosition, Quaternion.identity);
         newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+        StartCoroutine(LaunchProjectileRoutine());
+        IEnumerator LaunchProjectileRoutine(){
+            yield return new WaitForSeconds(.5f);
+            isAttacking = false;
+            animationStateChanger.ChangeAnimationState("idle");
+        }
     }
 
     public void Jump()
