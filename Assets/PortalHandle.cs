@@ -14,7 +14,7 @@ public class PortalHandle : MonoBehaviour
     bool changingScenes = false;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<creature>() != null && Coin.score==2)
+        if(other.GetComponent<creature>() != null && Coin.score == 2)
         {
             
             ChangeScene("Level 2");
