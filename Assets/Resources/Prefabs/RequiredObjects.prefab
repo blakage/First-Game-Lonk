@@ -311,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650198869836578798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.77, y: 14.78, z: 0.015384674}
+  m_LocalPosition: {x: -1.03, y: -3.67, z: 0.015384674}
   m_LocalScale: {x: 1.4246663, y: 1.7696927, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 4535039499371469980}
   - component: {fileID: 1044309817734425732}
   m_Layer: 0
-  m_Name: Death (1)
+  m_Name: Death2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,7 +1609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6389336613495224922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.6, y: -13.2, z: 2988.6272}
+  m_LocalPosition: {x: -43.6, y: -13.2, z: 0}
   m_LocalScale: {x: 8.7069, y: 5.9544, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1839,7 +1839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7819702937301392717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.03, y: -11.23, z: 2988.6272}
+  m_LocalPosition: {x: 34.03, y: -11.23, z: 0}
   m_LocalScale: {x: 8.7069, y: 5.9544, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
