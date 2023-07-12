@@ -52,3 +52,6 @@ TagManager:
   - name: Coins
     uniqueID: 3255554785
     locked: 0
+  - name: Fader
+    uniqueID: 3345309299
+    locked: 0
