@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Reference to the pause menu UI game object
     private bool isPaused = false; // Flag to track if the game is paused
-    public AudioMixer audioMixer;
+    //public AudioMixer myAudioMixer;
 
     public UnityEvent onWindowedMode; // Event triggered when switching to windowed mode
-    public UnityEvent onFullscreenMode; // Event triggered when switching to fullscreen mode
+    public UnityEvent onFullscreenMode;
+    
+   // Reference to the MasterAudio UI slider // Event triggered when switching to fullscreen mode
 
     // Start is called before the first frame update
     void Start()
@@ -71,4 +74,15 @@ public class OptionsMenu : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
+    /*
+    public void SetMusicVolume(float sliderValue)
+    {
+        myAudioMixer.SetFloat("MusicSlider", Mathf.Log10(sliderValue) * 20f);
+    }
+
+    public void SetMasterVolume(float sliderValue)
+    {
+        myAudioMixer.SetFloat("MasterSlider", Mathf.Log10(sliderValue) * 20f);
+    }
+    */
 }
