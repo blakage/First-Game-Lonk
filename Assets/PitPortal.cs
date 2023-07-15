@@ -11,6 +11,8 @@ public class PitPortal : MonoBehaviour
     private AudioSource soundEffect;
     public Transform deathRewindPoint;
 
+    public float portalReq;
+
     void Start()
     {
         GameObject coinAudioObj = GameObject.Find("DeathSound");
@@ -22,7 +24,7 @@ public class PitPortal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<creature>() != null && Coin.score >= 3)
+        if (other.GetComponent<creature>() != null && Coin.score >= portalReq)
         {
             PlaySoundEffect();
             TeleportToDeathRewindPoint(other.gameObject);
