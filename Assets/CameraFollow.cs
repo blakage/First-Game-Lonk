@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
    public Transform creature; // Reference to the creature object
     public float smoothTime = 0.3f; // Smoothing time for camera movement
-    public float zoomLevel = 5f; // Zoom level for the camera
+    public float zoomLevel = 7.3f; // Zoom level for the camera
 
     private Vector3 velocity = Vector3.zero; // Velocity for smoothing
 
