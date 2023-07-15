@@ -74,15 +74,5 @@ public class OptionsMenu : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
-    /*
-    public void SetMusicVolume(float sliderValue)
-    {
-        myAudioMixer.SetFloat("MusicSlider", Mathf.Log10(sliderValue) * 20f);
-    }
-
-    public void SetMasterVolume(float sliderValue)
-    {
-        myAudioMixer.SetFloat("MasterSlider", Mathf.Log10(sliderValue) * 20f);
-    }
-    */
+    
 }

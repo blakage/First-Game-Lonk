@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     public ImageFader imageFader;
+    
     // Start is called before the first frame update
     public void PrintHello(){
         Debug.Log("Hello!");
@@ -30,4 +32,6 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
+
+  
 }

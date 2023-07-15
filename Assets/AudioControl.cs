@@ -12,6 +12,7 @@ public class AudioControl : MonoBehaviour
 
      public void SetMusicVolume()
     {
+        
         float volume = MusicSlider.value;
         myAudioMixer.SetFloat("MusicSlider",Mathf.Log10(volume)*20);
     }
