@@ -11,7 +11,7 @@ public class ObstacleHandle : MonoBehaviour
         Debug.Log("Collision!");
         if(other.GetComponent<creature>() != null)
         {
-            FallingCoin.score = 0;
+            Coin.score = 0;
             //Destroy(this.gameObject);
             SceneManager.LoadScene("MainMenu");
             
