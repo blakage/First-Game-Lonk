@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BlockBoundary : MonoBehaviour
 {
-   private void OnTriggerEnter2D(Collider2D other)
+   private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the colliding object is the creature
-        if (other.CompareTag("Creature"))
+        // Check if the colliding object has the "Block" tag
+        if (collision.gameObject.CompareTag("Block"))
         {
-            // Allow the creature to pass through by disabling the collider
-            GetComponent<EdgeCollider2D>().enabled = false;
-            // Alternatively, you can set the collider as a trigger temporarily:
-            // GetComponent<EdgeCollider2D>().isTrigger = true;
+            // Block the movement of objects with the "Block" tag
+            Rigidbody2D collidingRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (collidingRigidbody != null)
+            {
+                // Prevent the colliding object from moving
+                collidingRigidbody.velocity = Vector2.zero;
+                collidingRigidbody.angularVelocity = 0f;
+            }
         }
     }
 }
