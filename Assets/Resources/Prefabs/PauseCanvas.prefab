@@ -410,7 +410,7 @@ RectTransform:
   - {fileID: 8533564430229932730}
   - {fileID: 3870748347611150489}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1544,6 +1544,7 @@ GameObject:
   - component: {fileID: 3870748347611150489}
   - component: {fileID: 3386750163074627233}
   - component: {fileID: 5116464406678651282}
+  - component: {fileID: 1964011842244675649}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1587,7 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1637,6 +1638,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1964011842244675649}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: SaveVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5116464406678651282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,6 +1665,19 @@ MonoBehaviour:
   myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
   MasterSlider: {fileID: 7379925576045444297}
   MusicSlider: {fileID: 3386750163074627233}
+--- !u!114 &1964011842244675649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278467493156212965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565ca5ddf80254f1691a4fb0b0dc5af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeKey: MusicSlider
 --- !u!1 &8676956281352797178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1689,7 @@ GameObject:
   - component: {fileID: 8533564430229932730}
   - component: {fileID: 7379925576045444297}
   - component: {fileID: 137642258457185489}
+  - component: {fileID: 1287426235175815761}
   m_Layer: 5
   m_Name: MasterSlider
   m_TagString: Untagged
@@ -1706,7 +1733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1756,6 +1783,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1287426235175815761}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: SaveVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &137642258457185489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1809,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
   MasterSlider: {fileID: 7379925576045444297}
-  MusicSlider: {fileID: 0}
+  MusicSlider: {fileID: 3386750163074627233}
+--- !u!114 &1287426235175815761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676956281352797178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565ca5ddf80254f1691a4fb0b0dc5af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeKey: MasterSlider
 --- !u!1 &8703860606365561083
 GameObject:
   m_ObjectHideFlags: 0
