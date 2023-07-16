@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectile : MonoBehaviour
+public class BossProjectile : MonoBehaviour
 {
     public float speed = 5.0f;
 
-    public GameObject target;
+    //public GameObject target;
 
     Rigidbody2D rb;
 
@@ -15,7 +15,7 @@ public class projectile : MonoBehaviour
     void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(this.gameObject,20);
+        Destroy(this.gameObject,5);
 
     }
     
@@ -25,6 +25,7 @@ public class projectile : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    /*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Block"))
@@ -36,6 +37,7 @@ public class projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 
     
 }

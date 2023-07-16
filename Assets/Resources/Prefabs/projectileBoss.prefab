@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6336524045770776813}
   - component: {fileID: 8768824600070839314}
   - component: {fileID: 7852009496408908786}
-  - component: {fileID: -1762940380865779793}
+  - component: {fileID: -7175484302822625883}
   m_Layer: 0
-  m_Name: projectileSword
+  m_Name: projectileBoss
   m_TagString: projectileSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1762940380865779793
+--- !u!114 &-7175484302822625883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5135895393532470437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf0142589a8c425b98c5320f2c04f0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 13de8a5ab52e2471eb93b9efefac4db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  target: {fileID: 0}
+  speed: 5
