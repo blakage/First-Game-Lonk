@@ -9,6 +9,7 @@ public class Platform : MonoBehaviour
     public Transform right;
 
     public float moveTime = 3;
+    private bool moving;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,26 @@ public class Platform : MonoBehaviour
     void Update()
     {
         
+    }
+
+   private void OnCollisionStay2D(Collision2D other)
+    {
+        creature creature = other.gameObject.GetComponent<creature>();
+        if (creature != null)
+        {
+            // Set the creature as a child of the platform
+            creature.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        creature creature = other.gameObject.GetComponent<creature>();
+        if (creature != null)
+        {
+            // Unset the creature as a child of the platform
+            creature.transform.SetParent(null);
+        }
     }
 
     void backAndFourth() {
@@ -49,4 +70,6 @@ public class Platform : MonoBehaviour
             
         }
     }
+
+
 }
