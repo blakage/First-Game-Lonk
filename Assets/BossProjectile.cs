@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BossProjectile : MonoBehaviour
 {
+
+    [Header("projectile")]
     public float speed = 5.0f;
-
-    //public GameObject target;
-
     Rigidbody2D rb;
+
+    [Header("Audio")]
+    private AudioSource soundEffect;
 
     // Start is called before the first frame update
 
@@ -25,19 +29,18 @@ public class BossProjectile : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    /*
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Block"))
+        creature creature = collision.gameObject.GetComponent<creature>();
+        if (creature != null)
         {
-            // Destroy the block
-            Destroy(collision.gameObject);
+            // Handle collision with the player's creature
 
-            // Destroy the projectile
+            // Destroy the BossProjectile game object
             Destroy(gameObject);
         }
     }
-    */
+   
 
     
 }

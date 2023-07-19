@@ -19,14 +19,29 @@ public class BossControl : MonoBehaviour
     public float damping = 0.5f; // Damping factor for the boss's movement
      public float offsetRange = 1.0f; // Maximum offset range for the boss's movement
 
+     [Header("refrences")]
+      SpriteRenderer sr;
+      public SpriteRenderer spriteRenderer;
+
+     [Header("Audio")]
+    private AudioSource soundEffect;
+
     void Start()
     {
         StartCoroutine(ShootRoutine());
+         // Find the game object with the name "CoinAudio"
+        GameObject bossAudio = GameObject.Find("BossHit");
+        if (bossAudio != null)
+        {
+            soundEffect = bossAudio.GetComponent<AudioSource>();
+        }
     }
 
     private void Awake()
     {
         creature = GameObject.FindGameObjectWithTag("creature"); // Find the creature object based on its tag
+        sr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -87,5 +102,47 @@ public class BossControl : MonoBehaviour
         Vector3 spawnPosition = transform.position + new Vector3(0f, 0f, 0f); // Adjust the spawn position as needed
         GameObject newProjectile = Instantiate(projectile, spawnPosition, Quaternion.identity);
         newProjectile.GetComponent<BossProjectile>().LaunchProjectile(targetPosition);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        projectile playerProjectile = other.GetComponent<projectile>();
+        if (playerProjectile != null)
+        {
+            // Handle the collision with the BossProjectile here
+            // For example, reduce health, play sound, or perform any other action
+            Debug.Log("Hit by PlayerProjectile!");
+            PlaySoundEffect();
+            StartCoroutine(ChangeColorCoroutine());
+
+        }
+    }
+
+    private IEnumerator ChangeColorCoroutine()
+    {
+            // Store the original color
+        Color originalColor = Color.white;
+
+        // Change the color to red
+        sr.color = Color.red;
+
+        // Transition back to the original color over time
+        float elapsedTime = 0f;
+        float transitionDuration = 0.5f; // Adjust the duration as needed
+
+        while (elapsedTime < transitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(Color.red, originalColor, elapsedTime / transitionDuration);
+            yield return null;
+        }
+
+        // Ensure the color is set to the original color
+        sr.color = originalColor;
+    }
+
+    void PlaySoundEffect()
+    {
+        soundEffect.Play(); // Play the sound effect
     }
 }

@@ -23,6 +23,11 @@ public class creature : MonoBehaviour
     bool isJumping;
     bool isAttacking = false;
 
+    [Header("Audio")]
+    private AudioSource soundEffect;
+
+
+
     void Awake()
     {
         Debug.Log("awake called");
@@ -35,16 +40,14 @@ public class creature : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("start called");
+        // Find the game object with the name "CoinAudio"
+        GameObject playerHit = GameObject.Find("PlayerHitSound");
+        if (playerHit != null)
+        {
+            soundEffect = playerHit.GetComponent<AudioSource>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        //myTransform.position += new Vector3(1f,0f,0f) * Time.deltaTime;
-        
-    }
 
     public void Move(Vector3 direction)
     {
@@ -115,5 +118,49 @@ public class creature : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        BossProjectile bossProjectile = other.GetComponent<BossProjectile>();
+        if (bossProjectile != null)
+        {
+            // Handle the collision with the BossProjectile here
+            // For example, reduce health, play sound, or perform any other action
+            Debug.Log("Hit by BossProjectile!");
+            PlaySoundEffect();
+            StartCoroutine(ChangeColorCoroutine());
+
+        }
+    }
+
+    private IEnumerator ChangeColorCoroutine()
+    {
+            // Store the original color
+        Color originalColor = Color.white;
+
+        // Change the color to red
+        sr.color = Color.red;
+
+        // Transition back to the original color over time
+        float elapsedTime = 0f;
+        float transitionDuration = 0.5f; // Adjust the duration as needed
+
+        while (elapsedTime < transitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(Color.red, originalColor, elapsedTime / transitionDuration);
+            yield return null;
+        }
+
+        // Ensure the color is set to the original color
+        sr.color = originalColor;
+    }
+
+    void PlaySoundEffect()
+    {
+        soundEffect.Play(); // Play the sound effect
+    }
+
+
     
 }

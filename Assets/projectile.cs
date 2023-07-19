@@ -35,6 +35,11 @@ public class projectile : MonoBehaviour
             // Destroy the projectile
             Destroy(gameObject);
         }
+
+        if( collision.gameObject.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     

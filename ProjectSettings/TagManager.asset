@@ -8,6 +8,7 @@ TagManager:
   - projectileSword
   - creature
   - Platform
+  - Boss
   layers:
   - Default
   - TransparentFX
