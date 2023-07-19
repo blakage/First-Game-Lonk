@@ -14,6 +14,12 @@ public class OptionsMenu : MonoBehaviour
     public UnityEvent onWindowedMode; // Event triggered when switching to windowed mode
     public UnityEvent onFullscreenMode;
     
+    public AudioMixer myAudioMixer;
+    public Slider MasterSlider;
+    public Slider MusicSlider;
+
+     
+    
    // Reference to the MasterAudio UI slider // Event triggered when switching to fullscreen mode
 
     // Start is called before the first frame update
@@ -75,4 +81,16 @@ public class OptionsMenu : MonoBehaviour
         Application.Quit();
     }
     
+    public void SetMusicVolume()
+    {
+        
+        float volume = MusicSlider.value;
+        myAudioMixer.SetFloat("MusicSlider",Mathf.Log10(volume)*20);
+    }
+
+    public void SetMasterVolume()
+    {
+        float volume = MasterSlider.value;
+        myAudioMixer.SetFloat("MasterSlider",Mathf.Log10(volume)*20);
+    }
 }

@@ -499,6 +499,9 @@ MonoBehaviour:
   onFullscreenMode:
     m_PersistentCalls:
       m_Calls: []
+  myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
+  MasterSlider: {fileID: 7379925576045444297}
+  MusicSlider: {fileID: 3386750163074627233}
 --- !u!1 &2476696983615932139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1546,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3870748347611150489}
   - component: {fileID: 3386750163074627233}
-  - component: {fileID: 5116464406678651282}
   - component: {fileID: 1964011842244675649}
   m_Layer: 5
   m_Name: MusicSlider
@@ -1588,7 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 1
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1626,8 +1628,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5116464406678651282}
-        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+      - m_Target: {fileID: 9152756440709617208}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
@@ -1650,21 +1652,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5116464406678651282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278467493156212965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9c53f21b0854f46b592054f84b4d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
-  MasterSlider: {fileID: 7379925576045444297}
-  MusicSlider: {fileID: 3386750163074627233}
 --- !u!114 &1964011842244675649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,7 +1675,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8533564430229932730}
   - component: {fileID: 7379925576045444297}
-  - component: {fileID: 137642258457185489}
   - component: {fileID: 1287426235175815761}
   m_Layer: 5
   m_Name: MasterSlider
@@ -1733,7 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 1
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1771,8 +1757,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 137642258457185489}
-        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+      - m_Target: {fileID: 9152756440709617208}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: SetMasterVolume
         m_Mode: 1
         m_Arguments:
@@ -1795,21 +1781,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &137642258457185489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676956281352797178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9c53f21b0854f46b592054f84b4d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
-  MasterSlider: {fileID: 7379925576045444297}
-  MusicSlider: {fileID: 3386750163074627233}
 --- !u!114 &1287426235175815761
 MonoBehaviour:
   m_ObjectHideFlags: 0

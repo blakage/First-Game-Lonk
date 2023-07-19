@@ -1834,6 +1834,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3386750163074627233, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798245949}
+    - target: {fileID: 3386750163074627233, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386750163074627233, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6214348985774280757, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1846,6 +1858,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7379925576045444297, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798245949}
+    - target: {fileID: 7379925576045444297, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379925576045444297, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8237376798396607912, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1858,7 +1882,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9152756440709617208, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: MusicSlider
+      value: 
+      objectReference: {fileID: 1208838561}
+    - target: {fileID: 9152756440709617208, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: MasterSlider
+      value: 
+      objectReference: {fileID: 286572027}
+    - target: {fileID: 9152756440709617208, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+      propertyPath: myAudioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
+    m_RemovedComponents:
+    - {fileID: 137642258457185489, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+    - {fileID: 5116464406678651282, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2903,6 +2941,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &286572027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7379925576045444297, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+  m_PrefabInstance: {fileID: 151401058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296445416
 GameObject:
   m_ObjectHideFlags: 0
@@ -6632,6 +6681,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798245949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9152756440709617208, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+  m_PrefabInstance: {fileID: 151401058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2cec68db89e438ba902ff25684184c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814441602
 GameObject:
   m_ObjectHideFlags: 0
@@ -10510,6 +10570,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1208838561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3386750163074627233, guid: cfc4308c08cec47c7b56495cab82ff6e, type: 3}
+  m_PrefabInstance: {fileID: 151401058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1227231229
 GameObject:
   m_ObjectHideFlags: 0
