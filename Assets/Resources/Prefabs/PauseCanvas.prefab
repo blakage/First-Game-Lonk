@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225, y: -123.09}
-  m_SizeDelta: {x: 40.98, y: 76.24}
+  m_AnchoredPosition: {x: 149, y: -92}
+  m_SizeDelta: {x: 83.219, y: 40.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5418446320873451685
 CanvasRenderer:
@@ -410,7 +410,7 @@ RectTransform:
   - {fileID: 8533564430229932730}
   - {fileID: 3870748347611150489}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -822,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &796626009357455235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1201,8 +1201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96, y: -67}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -154, y: -91}
+  m_SizeDelta: {x: 94.76, y: 39.338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6728734138411292416
 CanvasRenderer:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1413,8 +1413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.91, y: -27.93}
-  m_SizeDelta: {x: 677.91, y: 581.16}
+  m_AnchoredPosition: {x: -6.91, y: -1.48}
+  m_SizeDelta: {x: 677.91, y: 528.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8791862212221001709
 CanvasRenderer:
@@ -1938,7 +1938,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c7b3c1a54465e473485272a1dcd4261f, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
@@ -1947,4 +1947,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Windowed Mode
+  m_Text: Fullscreen/windowed

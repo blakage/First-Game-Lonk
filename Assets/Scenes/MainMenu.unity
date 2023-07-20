@@ -7407,8 +7407,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.199974, y: -256.52997}
-  m_SizeDelta: {x: 217.74, y: 45.74}
+  m_AnchoredPosition: {x: 286.96, y: -254.13}
+  m_SizeDelta: {x: 458.67, y: 43.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493882879829798603
 MonoBehaviour:
@@ -7485,7 +7485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FullScreen Mode
+  m_Text: Toggle Fullscreen/window
 --- !u!224 &851415684505829871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7668,7 +7668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8638,7 +8638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6565064333388188250
 RectTransform:
   m_ObjectHideFlags: 0
