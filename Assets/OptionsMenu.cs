@@ -11,12 +11,10 @@ public class OptionsMenu : MonoBehaviour
     private bool isPaused = false; // Flag to track if the game is paused
     //public AudioMixer myAudioMixer;
 
-    public UnityEvent onWindowedMode; // Event triggered when switching to windowed mode
-    public UnityEvent onFullscreenMode;
-    
     public AudioMixer myAudioMixer;
     public Slider MasterSlider;
     public Slider MusicSlider;
+
 
      
     
@@ -60,22 +58,12 @@ public class OptionsMenu : MonoBehaviour
         GetComponent<Canvas>().enabled = false;// Hide the pause menu UI
     }
 
-    public void SetWindowedMode()
-    {
-        SetFullscreen(false); // Switch to windowed mode
-        onWindowedMode.Invoke(); // Invoke the windowed mode event
-    }
 
-    public void SetFullscreenMode()
+    public void ChangeScreen()
     {
-        SetFullscreen(true); // Switch to fullscreen mode
-        onFullscreenMode.Invoke(); // Invoke the fullscreen mode event
+        Screen.fullScreen = !Screen.fullScreen; // Set fullscreen mode
     }
-
-    private void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
+   
 
     public void QuitGame(){
         Application.Quit();

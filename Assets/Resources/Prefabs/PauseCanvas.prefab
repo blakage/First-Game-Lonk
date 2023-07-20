@@ -410,7 +410,7 @@ RectTransform:
   - {fileID: 8533564430229932730}
   - {fileID: 3870748347611150489}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -493,12 +493,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2109875977117103692}
-  onWindowedMode:
-    m_PersistentCalls:
-      m_Calls: []
-  onFullscreenMode:
-    m_PersistentCalls:
-      m_Calls: []
   myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
   MasterSlider: {fileID: 7379925576045444297}
   MusicSlider: {fileID: 3386750163074627233}
@@ -934,7 +928,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9152756440709617208}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: SetFullscreenMode
+        m_MethodName: ChangeScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1294,7 +1288,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9152756440709617208}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: SetWindowedMode
+        m_MethodName: ChangeScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

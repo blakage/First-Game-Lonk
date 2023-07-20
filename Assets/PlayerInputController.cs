@@ -21,7 +21,7 @@ public class PlayerInputController : MonoBehaviour
             creature.RandomizeColor();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             creature.LaunchProjectile();
         }
