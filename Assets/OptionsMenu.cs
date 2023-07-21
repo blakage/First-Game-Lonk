@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour
 
     private const float targetAspect = 16f / 9f; // Set your desired aspect ratio here
     private Camera mainCamera;
+    private bool isFullscreen = true;
 
 
      
@@ -71,13 +72,21 @@ public class OptionsMenu : MonoBehaviour
     */
     public void SetFullscreenMode()
     {
-        SetFullscreen(true);
+        if (!isFullscreen) // Check if not already in fullscreen mode
+        {
+            SetFullscreen(true);
+            isFullscreen = true;
+        }
     }
 
     // Function to set the game to windowed mode
     public void SetWindowedMode()
     {
-        SetFullscreen(false);
+        if (isFullscreen) // Check if not already in windowed mode
+        {
+            SetFullscreen(false);
+            isFullscreen = false;
+        }
     }
 
     private void SetFullscreen(bool isFullscreen)
