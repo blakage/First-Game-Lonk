@@ -15,6 +15,9 @@ public class OptionsMenu : MonoBehaviour
     public Slider MasterSlider;
     public Slider MusicSlider;
 
+    private const float targetAspect = 16f / 9f; // Set your desired aspect ratio here
+    private Camera mainCamera;
+
 
      
     
@@ -24,6 +27,8 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         GetComponent<Canvas>().enabled = false;// Start with the pause menu UI hidden
+        mainCamera = Camera.main;
+        GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame
@@ -58,10 +63,43 @@ public class OptionsMenu : MonoBehaviour
         GetComponent<Canvas>().enabled = false;// Hide the pause menu UI
     }
 
-
+    /*
     public void ChangeScreen()
     {
         Screen.fullScreen = !Screen.fullScreen; // Set fullscreen mode
+    }
+    */
+    public void SetFullscreenMode()
+    {
+        SetFullscreen(true);
+    }
+
+    // Function to set the game to windowed mode
+    public void SetWindowedMode()
+    {
+        SetFullscreen(false);
+    }
+
+    private void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+
+        // Adjust camera size to match the aspect ratio
+        float currentAspect = (float)Screen.width / Screen.height;
+        float orthoSize = mainCamera.orthographicSize;
+
+        if (currentAspect < targetAspect)
+        {
+            // The screen is narrower (black bars on sides)
+            orthoSize = mainCamera.orthographicSize * (targetAspect / currentAspect);
+        }
+        else
+        {
+            // The screen is wider (black bars on top/bottom)
+            orthoSize = mainCamera.orthographicSize;
+        }
+
+        mainCamera.orthographicSize = orthoSize;
     }
    
 
