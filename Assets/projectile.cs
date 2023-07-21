@@ -15,7 +15,7 @@ public class projectile : MonoBehaviour
     void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(this.gameObject,20);
+        Destroy(this.gameObject,7);
 
     }
     

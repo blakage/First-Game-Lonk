@@ -87,13 +87,13 @@ public class creature : MonoBehaviour
         }
         isAttacking = true;
         animationStateChanger.ChangeAnimationState("Sword",5);
-        Vector3 spawnPosition = transform.position + new Vector3(0f, 1.25f, 0f); // Adjust the y value as needed
+        Vector3 spawnPosition = transform.position + new Vector3(0f, 1f, 0f); // Adjust the y value as needed
         GameObject newProjectile = Instantiate(projectile, spawnPosition, Quaternion.identity);
         newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         StartCoroutine(LaunchProjectileRoutine());
         IEnumerator LaunchProjectileRoutine(){
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.3f);
             isAttacking = false;
             animationStateChanger.ChangeAnimationState("idle");
         }
