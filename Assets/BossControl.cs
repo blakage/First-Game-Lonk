@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossControl : MonoBehaviour
 {
@@ -22,19 +23,26 @@ public class BossControl : MonoBehaviour
 
      [Header("refrences")]
       SpriteRenderer sr;
-      public SpriteRenderer spriteRenderer;
+    bool changingScenes = false;
+    public ImageFader imageFader;
 
      [Header("Audio")]
     private AudioSource soundEffect;
+    private AudioSource soundEffectBoss;
+
 
     void Start()
     {
         StartCoroutine(ShootRoutine());
          // Find the game object with the name "CoinAudio"
         GameObject bossAudio = GameObject.Find("BossHit");
+        GameObject bossAudioDeath = GameObject.Find("BossDead");
         if (bossAudio != null)
         {
             soundEffect = bossAudio.GetComponent<AudioSource>();
+        }
+        if(bossAudioDeath != null){
+            soundEffectBoss = bossAudioDeath.GetComponent<AudioSource>();
         }
     }
 
@@ -42,7 +50,6 @@ public class BossControl : MonoBehaviour
     {
         creature = GameObject.FindGameObjectWithTag("creature"); // Find the creature object based on its tag
         sr = GetComponent<SpriteRenderer>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -116,6 +123,10 @@ public class BossControl : MonoBehaviour
             // For example, reduce health, play sound, or perform any other action
             Debug.Log("Hit by PlayerProjectile!");
             bossHealthPoints--;
+            if(bossHealthPoints == 0){
+                PlayDeathSoundEffect();
+                Destroy(this.gameObject);
+            }
             PlaySoundEffect();
             StartCoroutine(ChangeColorCoroutine());
 
@@ -148,5 +159,24 @@ public class BossControl : MonoBehaviour
     void PlaySoundEffect()
     {
         soundEffect.Play(); // Play the sound effect
+    }
+    void PlayDeathSoundEffect()
+    {
+        soundEffectBoss.Play(); // Play the sound effect
+    }
+
+    public void ChangeScene(string sceneName ){
+        if(changingScenes){
+            return;
+        }
+        changingScenes = true;
+        StartCoroutine(ChangeSceneRoutine());
+        IEnumerator ChangeSceneRoutine(){
+            imageFader.FadeToBlack();
+            yield return new WaitForSeconds(imageFader.fadeTime);
+            SceneManager.LoadScene(sceneName);
+            yield return null;
+        }
+        
     }
 }
