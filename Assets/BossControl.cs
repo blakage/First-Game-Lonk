@@ -7,6 +7,7 @@ public class BossControl : MonoBehaviour
    public GameObject projectile;
     public creature target;
     private GameObject creature; // Reference to the creature object
+    public int bossHealthPoints = 10;
 
     [Header("Shooting control")]
     public float shootingDuration = 4f;
@@ -46,7 +47,9 @@ public class BossControl : MonoBehaviour
 
     private void Update()
     {
-        FollowCreature(); // Follow the creature object on the x-axis
+        if(creature != null){
+            FollowCreature(); // Follow the creature object on the x-axis
+        }
     }
 
     private void FollowCreature()
@@ -112,6 +115,7 @@ public class BossControl : MonoBehaviour
             // Handle the collision with the BossProjectile here
             // For example, reduce health, play sound, or perform any other action
             Debug.Log("Hit by PlayerProjectile!");
+            bossHealthPoints--;
             PlaySoundEffect();
             StartCoroutine(ChangeColorCoroutine());
 

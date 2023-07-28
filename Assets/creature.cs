@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class creature : MonoBehaviour
 {
     [Header("Config")]
-    public int healthPoints = 11;
+    public int healthPoints = 4;
     public float speed = 6.0f;
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
@@ -17,6 +19,8 @@ public class creature : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D rb;
     AnimationStateChanger animationStateChanger;
+    
+
 
     public SpriteRenderer spriteRenderer;
 
@@ -127,6 +131,10 @@ public class creature : MonoBehaviour
             // Handle the collision with the BossProjectile here
             // For example, reduce health, play sound, or perform any other action
             Debug.Log("Hit by BossProjectile!");
+            DecreaseHealth();
+            if(healthPoints == 0){
+                Coin.score = 0;
+            }
             PlaySoundEffect();
             StartCoroutine(ChangeColorCoroutine());
 
@@ -160,6 +168,16 @@ public class creature : MonoBehaviour
     {
         soundEffect.Play(); // Play the sound effect
     }
+
+    public void DecreaseHealth()
+    {
+        // Decrease health points
+        healthPoints--;
+        // Call the UpdateHeartOpacities function from the HeartControl script to update the hearts' opacity based on the new health
+        HeartControl.UpdateHeartOpacities(healthPoints);
+    }
+
+    
 
 
     
