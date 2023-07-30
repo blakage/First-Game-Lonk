@@ -7,7 +7,7 @@ public class PlayerPrefDelete : MonoBehaviour
     // Start is called before the first frame update
    private void Awake()
    {
-        DontDestroyOnLoad(this.gameObject);
-        PlayerPrefs.DeleteAll();
+        //DontDestroyOnLoad(this.gameObject);
+        //PlayerPrefs.DeleteAll();
     }
 }
