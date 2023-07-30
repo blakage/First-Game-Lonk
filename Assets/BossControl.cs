@@ -19,14 +19,14 @@ public class BossControl : MonoBehaviour
     [Header("Following stuff")]
     public float followSpeed = 10f; // Speed at which the boss follows the creature
     public float damping = 0.5f; // Damping factor for the boss's movement
-     public float offsetRange = 1.0f; // Maximum offset range for the boss's movement
+    public float offsetRange = 1.0f; // Maximum offset range for the boss's movement
 
-     [Header("refrences")]
-      SpriteRenderer sr;
-    bool changingScenes = false;
+    [Header("refrences")]
+    SpriteRenderer sr;
     public ImageFader imageFader;
+    public static bool bossDead = false;
 
-     [Header("Audio")]
+    [Header("Audio")]
     private AudioSource soundEffect;
     private AudioSource soundEffectBoss;
 
@@ -123,13 +123,30 @@ public class BossControl : MonoBehaviour
             // For example, reduce health, play sound, or perform any other action
             Debug.Log("Hit by PlayerProjectile!");
             bossHealthPoints--;
-            if(bossHealthPoints == 0){
+            if (bossHealthPoints == 0)
+            {
+                bossDead = true;
                 PlayDeathSoundEffect();
                 Destroy(this.gameObject);
-            }
-            PlaySoundEffect();
-            StartCoroutine(ChangeColorCoroutine());
 
+                // Disable the creature's box collider
+                BoxCollider2D creatureCollider = target.GetComponent<BoxCollider2D>();
+                EdgeCollider2D creatureEdgeCollider = target.GetComponent<EdgeCollider2D>();
+                Rigidbody2D CreatureRigid = target.GetComponent<Rigidbody2D>();
+                if (creatureCollider != null)
+                {
+                    creatureCollider.enabled = false;
+                    creatureEdgeCollider.enabled = false;
+                    CreatureRigid.simulated = false;
+                }
+
+                Coin.score = 0;
+            }
+            else
+            {
+                PlaySoundEffect();
+                StartCoroutine(ChangeColorCoroutine());
+            }
         }
     }
 
@@ -165,18 +182,4 @@ public class BossControl : MonoBehaviour
         soundEffectBoss.Play(); // Play the sound effect
     }
 
-    public void ChangeScene(string sceneName ){
-        if(changingScenes){
-            return;
-        }
-        changingScenes = true;
-        StartCoroutine(ChangeSceneRoutine());
-        IEnumerator ChangeSceneRoutine(){
-            imageFader.FadeToBlack();
-            yield return new WaitForSeconds(imageFader.fadeTime);
-            SceneManager.LoadScene(sceneName);
-            yield return null;
-        }
-        
-    }
 }

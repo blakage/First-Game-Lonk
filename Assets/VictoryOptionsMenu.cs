@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class OptionsMenu : MonoBehaviour
+public class VictoryOptionsMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Reference to the pause menu UI game object
     private bool isPaused = false; // Flag to track if the game is paused
@@ -19,6 +19,7 @@ public class OptionsMenu : MonoBehaviour
     private const float targetAspect = 16f / 9f; // Set your desired aspect ratio here
     private Camera mainCamera;
     private bool isFullscreen = true;
+    public ImageFader imageFader;
 
 
 
@@ -53,7 +54,7 @@ public class OptionsMenu : MonoBehaviour
     void PauseGame()
     {
         Debug.Log("Paused");
-        Time.timeScale = 0f; // Freeze the game time
+        Time.timeScale = 1f; // Freeze the game time
         isPaused = true;
         GetComponent<Canvas>().enabled = true; // Show the pause menu UI
     }
@@ -130,5 +131,21 @@ public class OptionsMenu : MonoBehaviour
         float volume = MasterSlider.value;
         myAudioMixer.SetFloat("MasterSlider",Mathf.Log10(volume)*20);
     }
+
+    bool changingScenes = false;
+    public void ChangeScene(string sceneName){
+        if(changingScenes){
+            return;
+        }
+        Debug.Log("inChange");
+        changingScenes = true;
+        StartCoroutine(ChangeSceneRoutine());
+        IEnumerator ChangeSceneRoutine(){
+            imageFader.FadeToBlack();
+            yield return new WaitForSeconds(imageFader.fadeTime);
+            SceneManager.LoadScene(sceneName);
+            yield return null;
+        }
         
+    }
 }

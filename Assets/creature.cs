@@ -19,6 +19,7 @@ public class creature : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D rb;
     AnimationStateChanger animationStateChanger;
+    public BossControl boss;
     
 
 
@@ -134,6 +135,11 @@ public class creature : MonoBehaviour
             DecreaseHealth();
             if(healthPoints == 0){
                 Coin.score = 0;
+                CircleCollider2D bossCollider = boss.GetComponent<CircleCollider2D>();
+                if (bossCollider != null)
+                {
+                    bossCollider.enabled = false;
+                }
             }
             PlaySoundEffect();
             StartCoroutine(ChangeColorCoroutine());
