@@ -17517,7 +17517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5135895393532470437, guid: 083dc9479bd6a4022b047de3fd7810ab, type: 3}
   target: {fileID: 1582837349629409551}
-  bossHealthPoints: 10
+  bossHealthPoints: 20
   shootingDuration: 5
   shootingInterval: 0.5
   cooldownDuration: 3
